@@ -1,8 +1,8 @@
+import "../Perfil/styles.scss"
 import Header from "../Header"
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Foto from "../../assets/img/zeca-urubu.png"
-import "../Perfil/styles.scss"
 
 export default function Perfil() {
     return(

@@ -1,19 +1,12 @@
-import { useState } from 'react'
-// import Login from './Components/Login'
-// import Cadastro from './Components/Cadastro'
-// import Header from './Components/Header'
-// import Perfil from './Components/Perfil'
-import Feed from './Components/Feed'
-import "../src/assets/styles/global.scss"
+import "../src/assets/styles/global.scss";
+import Routes from "./Routes";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
-      <Feed />
+      <Routes />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

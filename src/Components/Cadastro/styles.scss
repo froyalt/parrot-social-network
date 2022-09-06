@@ -2,16 +2,25 @@
 @import "bootstrap/scss/bootstrap";
 
 
-body{
-    background:linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../../assets/img/BACKGROUND.png");
+.container-bg{
+    background-image: url("../../assets/img/BACKGROUND.png");
     background-size: cover;
+    background-color: black;
 }
 
-#teste{
+#card{
     margin: 0 auto;
     width: 80%
 }
 
+::placeholder{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.logo-img{
+    width: 32% !important;
+}
 
 h4{
     font-size: 1.5rem;
