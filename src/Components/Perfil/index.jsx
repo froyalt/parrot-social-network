@@ -20,7 +20,7 @@ export default function Perfil() {
                             00 Publicações
                 </Card.Text>
 
-                    <Button id="editar-button" className="ms-auto me-5 px-4 mt-2 align-self-start">editar</Button>
+                    <Button id="editar-button" className="ms-auto me-5 px-4 mt-2 align-self-start">editar perfil</Button>
                 </Card.Body>
             </Card>
 

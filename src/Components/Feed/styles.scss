@@ -12,6 +12,7 @@
     border-color: #8BC34A;
     border-radius: .625rem;
     width: 80%;
+    resize: none;
 }
 
 #nome-perfil{
@@ -36,9 +37,43 @@
     padding: 0.10rem 0;
 }
 
+
+@media (max-width: 1025px) {
+    .card-tweet {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .foto-perfil{
+        margin: 0 !important;
+        margin-bottom: 0.5rem !important;
+        margin-right: 1rem !important;
+    }
+
+    #editar-button{
+        margin: 0 !important;
+        margin-top: 0.5rem !important;
+    }
+}
+
+@media (max-width: 740px){
+    .foto-perfil{
+        margin: 0 !important;
+        margin-bottom: 0.5rem !important;
+    }
+}
+
 @media (max-width: 582px) {
     .card-post {
         display: flex;
         flex-wrap: wrap !important;
     }
 }
+
+@media (max-width: 350px) {
+    #editar-button {
+        padding: 0 1rem !important;
+    }
+}
+
+
