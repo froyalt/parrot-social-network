@@ -1,0 +1,38 @@
+#card-perfil{
+    border-radius: 0px !important;
+    border-top: none;
+}
+
+#card-post{
+    border-radius: 0px !important;
+    border-top: none;
+}
+
+#nome-perfil{
+    font-size: 1.25rem;
+    color:#76BB4C;
+}
+
+.nome-publi{
+    font-size: 1rem;
+    color: #76BB4C;
+}
+
+.data-publi{
+    font-size: 0.8rem;
+    color: #909090;
+}
+
+#editar-button{
+    background-color: #76BB4C;
+    border: #76BB4C;
+    border-radius: 1.875rem;
+    padding: 0.25rem 0;
+}
+
+@media (max-width: 582px) {
+    .card-post {
+        display: flex;
+        flex-wrap: wrap !important;
+    }
+}

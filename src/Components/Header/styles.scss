@@ -1,0 +1,40 @@
+@import "../../assets/styles/global.scss";
+@import "bootstrap/scss/bootstrap";
+
+
+// body{
+//     background:linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../../assets/img/BACKGROUND2.png");
+//     background-size: cover;
+// }
+
+.header {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.08);
+    margin: 0;
+    padding: 0 2rem;
+    z-index: 1;
+}
+
+.user-text{
+    color: $accent-color;
+    font-size: 1.4rem;
+}
+
+#sair{
+    color: #6033AA;
+    font-size: 1rem;
+}
+
+@media (max-width: 450px) {
+    .header {
+       flex-wrap: wrap;
+    }
+
+    .img-header{
+        display: none;
+    }
+
+    #editar-button{
+        margin: 0 !important;
+    }
+
+}

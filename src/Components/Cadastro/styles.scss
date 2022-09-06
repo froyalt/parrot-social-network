@@ -1,0 +1,29 @@
+@import "../../assets/styles/global.scss";
+@import "bootstrap/scss/bootstrap";
+
+
+body{
+    background:linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../../assets/img/BACKGROUND.png");
+    background-size: cover;
+}
+
+#teste{
+    margin: 0 auto;
+    width: 80%
+}
+
+
+h4{
+    font-size: 1.5rem;
+}
+
+#buttonEntrar{
+    font-size: 1.2rem;
+    color: black;
+    background-color: #76BB4C;
+    border: #76BB4C;
+    border-radius: .625rem;
+    text-align: center;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+}
