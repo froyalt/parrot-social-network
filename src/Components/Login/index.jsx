@@ -1,6 +1,7 @@
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import Logo from "../../assets/img/logo-colorido.png";
+import { Link } from "react-router-dom";
 import "../Login/styles.scss";
 
 export default function Login() {
@@ -14,24 +15,24 @@ export default function Login() {
                 <Card.Img
                   src={Logo}
                   alt="logo-login"
-                  className="logo-img pt-2"
+                  className="logo-img pt-5"
                 />
                 <h4 className="py-3">LOGIN</h4>
                 <Form className="container w-75">
                   <Form.Group className="mb-3 mt-4" controlId="formBasicName">
-                    <Form.Control type="email" placeholder="email" />
+                    <Form.Control id="input-form" type="email" placeholder="email" />
                   </Form.Group>
 
                   <Form.Group
                     className="mb-3 mt-4"
                     controlId="formBasicPassword"
                   >
-                    <Form.Control type="password" placeholder="senha" />
+                    <Form.Control id="input-form" type="password" placeholder="senha" />
                   </Form.Group>
 
                   <Form.Group className="mb-3 mt-4" controlId="formBasicName">
                     <Form.Control
-                      className="my-5"
+                      className=""
                       id="buttonEntrar"
                       type="submit"
                       value="entrar"
@@ -39,6 +40,7 @@ export default function Login() {
                   </Form.Group>
                 </Form>
               </Card.Body>
+                <Link id="link" className="mb-5" to="/cadastro">cadastre-se</Link>
             </Card>
           </div>
         </div>

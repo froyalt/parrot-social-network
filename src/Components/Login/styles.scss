@@ -7,18 +7,26 @@
     background-color: black;
 }
 
-    a{
-        color: black;
+    #link{
+        text-decoration: none;
+        color: #555;
+        font-size: 1rem;
     }    
+
+    #input-form{
+        border-radius: .625rem;
+        border: #909090 .0625rem solid;
+    }
 
     ::placeholder{
         text-align: center;
-        font-size: 1.5rem;
+        font-size: 1.3rem !important;
     }
 
     #card{
         margin: 0 auto;
-        width: 80%
+        width: 80%;
+        border-radius: 0;
     }
     
     .logo-img{

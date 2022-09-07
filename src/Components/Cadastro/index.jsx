@@ -52,18 +52,18 @@ export default function Cadastro() {
                 <h4 className="py-3">CADASTRO</h4>
                 <Form className="container w-75" onSubmit={cadastro}>
                   <Form.Group className="mb-3 mt-4" >
-                    <Form.Control type="name" placeholder="nome" value={nome} onChange={(e) => setNome(e.target.value)} />
+                    <Form.Control type="name" id="input-form" placeholder="nome" value={nome} onChange={(e) => setNome(e.target.value)} />
                   </Form.Group>
 
                   <Form.Group className="mb-3 mt-4" >
-                    <Form.Control type="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <Form.Control type="email" id="input-form" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                   </Form.Group>
 
                   <Form.Group
                     className="mb-3 mt-4"
                     
                   >
-                    <Form.Control type="password" placeholder="senha" value={senha} onChange={(e) => setSenha(e.target.value)} />
+                    <Form.Control type="password" id="input-form" placeholder="senha" value={senha} onChange={(e) => setSenha(e.target.value)} />
                   </Form.Group>
 
                   <Form.Group
@@ -72,6 +72,7 @@ export default function Cadastro() {
                   >
                     <Form.Control
                       type="password"
+                      id="input-form"
                       placeholder="confirmar senha"
                       value={confirmarSenha} onChange={(e) => setConfirmarSenha(e.target.value)}
                     />
@@ -80,6 +81,7 @@ export default function Cadastro() {
                   <Form.Group className="mb-3 mt-4" >
                     <Form.Control
                       type="name"
+                      id="input-form"
                       placeholder="unidade/apartamento"
                       value={apartamento} onChange={(e) => setApartamento(e.target.value)}
                     />
