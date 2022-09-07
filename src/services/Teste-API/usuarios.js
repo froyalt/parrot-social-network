@@ -5,5 +5,5 @@ export function cadastroUsuario(payload){
 }
 
 export function listarUsuario(){
-    return baseAPI.get("/GI7aAo/tweset")
+    return baseAPI.get("/GI7aAo/tweet")
 }
