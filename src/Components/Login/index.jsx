@@ -19,18 +19,15 @@ export default function Login() {
                 />
                 <h4 className="py-3">LOGIN</h4>
                 <Form className="container w-75">
-                  <Form.Group className="mb-3 mt-4" controlId="formBasicName">
+                  <Form.Group className="mb-3 mt-4">
                     <Form.Control id="input-form" type="email" placeholder="email" required />
                   </Form.Group>
 
-                  <Form.Group
-                    className="mb-3 mt-4"
-                    controlId="formBasicPassword"
-                  >
+                  <Form.Group className="mb-3 mt-4">
                     <Form.Control id="input-form" type="password" placeholder="senha" required />
                   </Form.Group>
 
-                  <Form.Group className="mb-3 mt-4" controlId="formBasicName">
+                  <Form.Group className="mb-3 mt-4">
                     <Form.Control
                       className=""
                       id="buttonEntrar"
