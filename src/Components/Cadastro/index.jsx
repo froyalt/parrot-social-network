@@ -1,10 +1,42 @@
-import Button from "react-bootstrap/Button";
+import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import Logo from "../../assets/img/logo-colorido.png";
+import { cadastroUsuario } from "../../services/Teste-API/usuarios";
 import "../Cadastro/styles.scss";
 
 export default function Cadastro() {
+
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [confirmarSenha, setConfirmarSenha] = useState("");
+  const [apartamento, setApartamento] = useState("");
+
+  const cadastro = async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      nome,
+      email,
+      senha,
+      confirmarSenha,
+      apartamento
+    };
+
+    try {
+      const response = await cadastroUsuario(payload);
+      if(response.status !== 201) {
+        return alert("Algo deu errado")
+      }
+
+      alert("Cadastro Efetuado com Sucesso!")
+    } catch (error) {
+      return alert("Algo deu errado")
+      
+    }
+  }
+
   return (
     <main className="container-bg">
       <div className="container vh-100">
@@ -18,40 +50,42 @@ export default function Cadastro() {
                   className="logo-img pt-2"
                 />
                 <h4 className="py-3">CADASTRO</h4>
-                <Form className="container w-75">
-                  <Form.Group className="mb-3 mt-4" controlId="formBasicEmail">
-                    <Form.Control type="name" placeholder="nome" />
+                <Form className="container w-75" onSubmit={cadastro}>
+                  <Form.Group className="mb-3 mt-4" >
+                    <Form.Control type="name" placeholder="nome" value={nome} onChange={(e) => setNome(e.target.value)} />
                   </Form.Group>
 
-                  <Form.Group className="mb-3 mt-4" controlId="formBasicName">
-                    <Form.Control type="email" placeholder="email" />
+                  <Form.Group className="mb-3 mt-4" >
+                    <Form.Control type="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                   </Form.Group>
 
                   <Form.Group
                     className="mb-3 mt-4"
-                    controlId="formBasicPassword"
+                    
                   >
-                    <Form.Control type="password" placeholder="senha" />
+                    <Form.Control type="password" placeholder="senha" value={senha} onChange={(e) => setSenha(e.target.value)} />
                   </Form.Group>
 
                   <Form.Group
                     className="mb-3 mt-4"
-                    controlId="formBasicPassword"
+                    
                   >
                     <Form.Control
                       type="password"
                       placeholder="confirmar senha"
+                      value={confirmarSenha} onChange={(e) => setConfirmarSenha(e.target.value)}
                     />
                   </Form.Group>
 
-                  <Form.Group className="mb-3 mt-4" controlId="formBasicName">
+                  <Form.Group className="mb-3 mt-4" >
                     <Form.Control
                       type="name"
                       placeholder="unidade/apartamento"
+                      value={apartamento} onChange={(e) => setApartamento(e.target.value)}
                     />
                   </Form.Group>
 
-                  <Form.Group className="mb-3 mt-4" controlId="formBasicName">
+                  <Form.Group className="mb-3 mt-4" >
                     <Form.Control
                       className="my-5"
                       id="buttonEntrar"
