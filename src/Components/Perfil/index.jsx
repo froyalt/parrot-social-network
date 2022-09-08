@@ -26,7 +26,7 @@ export default function Perfil() {
             </Card.Text>
 
             <Button
-              id="editar-button"
+              id="editar-button-perfil"
               className="ms-auto me-5 px-4 mt-2 align-self-start"
             >
               editar perfil
