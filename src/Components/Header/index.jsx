@@ -1,9 +1,28 @@
-import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
+import { useCallback, useEffect, useState } from "react";
+import { listarUsuario } from "../../services/Teste-API/usuarios";
+import { useParams } from "react-router-dom";
+import baseAPI from "../../services/Teste-API/config/index";
+import { Navbar, Container } from "react-bootstrap";
 import Logo from "../../assets/img/logo-horizontal-colorido.png";
 import "../Header/styles.scss";
 
 export default function Header() {
+  const [usuarios, setUsuarios] = useState();
+
+  const { id } = useParams();
+
+  const fetchUser = useCallback(async () => {
+    const response = await baseAPI.get(`/GI7aAo/tweet/${id}`).then((res) => {
+      return res.data;
+    });
+
+    setUsuarios(response);
+  }, [setUsuarios, id]);
+
+  useEffect(() => {
+    fetchUser();
+  }, [fetchUser]);
+
   return (
     <Navbar className="header">
       <Container fluid>
@@ -13,7 +32,7 @@ export default function Header() {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            <span className="user-text">Olá, Usuário | </span>{" "}
+            <span className="user-text">Olá, {usuarios?.nome} | </span>{" "}
             <a id="sair" href="#login">
               sair
             </a>
