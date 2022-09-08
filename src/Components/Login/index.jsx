@@ -3,8 +3,27 @@ import Card from "react-bootstrap/Card";
 import Logo from "../../assets/img/logo-colorido.png";
 import { Link } from "react-router-dom";
 import "../Login/styles.scss";
+import { login } from "../../services/Teste-API/config/login";
+import { useState } from "react";
 
 export default function Login() {
+
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const submit = async (e) => {
+    e.preventDefault()
+
+    try {
+      const response = await login({email, password})
+      console.log(response.data)
+      alert("Deu certo!")
+    } catch (error) {
+      alert("Deu algo errado!")
+    }
+
+  }
+
   return (
     <main className="container-bg">
       <div className="container vh-100">
@@ -18,13 +37,13 @@ export default function Login() {
                   className="logo-img pt-5"
                 />
                 <h4 className="py-3">LOGIN</h4>
-                <Form className="container w-75">
+                <Form onSubmit={submit} className="container w-75">
                   <Form.Group className="mb-3 mt-4">
-                    <Form.Control id="input-form" type="email" placeholder="email" required />
+                    <Form.Control id="input-form" type="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                   </Form.Group>
 
                   <Form.Group className="mb-3 mt-4">
-                    <Form.Control id="input-form" type="password" placeholder="senha" required />
+                    <Form.Control id="input-form" type="password" placeholder="senha" value={password} onChange={(e) => setPassword(e.target.value)} required />
                   </Form.Group>
 
                   <Form.Group className="mb-3 mt-4">
