@@ -12,7 +12,7 @@ export default function Routes() {
       <Route path="/cadastro" element={<Cadastro />} />
       <Route path="/perfil" element={<Perfil />} />
       <Route path="/feed" element={<Feed />} />
-      <Route path="/perfil-copy" element={<Perfilcopy />} />
+      <Route path="/perfil-copy/tweet/:id" element={<Perfilcopy />} />
     </WrapperRoutes>
   );
 }
