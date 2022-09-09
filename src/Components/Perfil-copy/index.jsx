@@ -1,8 +1,7 @@
 import Header from "../Header";
 import { useCallback, useEffect, useState } from "react";
-import { listarUsuario } from "../../services/Teste-API/usuarios";
 import { useParams } from 'react-router-dom'
-import baseAPI from "../../services/Teste-API/config/index";
+import testeAPI from "../../services/Teste-API/config/teste-api";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Foto from "../../assets/img/zeca-urubu.png";
@@ -19,7 +18,7 @@ export default function Perfilcopy() {
 
 
   const fetchUser = useCallback(async () => {
-    const response = await baseAPI.get(`/GI7aAo/tweet/${id}`).then ((res) => {
+    const response = await testeAPI.get(`/GI7aAo/tweet/${id}`).then ((res) => {
       return res.data
     })
 

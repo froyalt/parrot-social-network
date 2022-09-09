@@ -1,28 +1,45 @@
-import Form from "react-bootstrap/Form";
-import Card from "react-bootstrap/Card";
+import { Form, Card} from "react-bootstrap";
 import Logo from "../../assets/img/logo-colorido.png";
-import { Link } from "react-router-dom";
-import "../Login/styles.scss";
+import {Link, Routes, Route, useNavigate} from 'react-router-dom';
 import { login } from "../../services/Teste-API/config/login";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import "../Login/styles.scss";
+import { setUser } from "../../store/modules/user";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const navigate = useNavigate();
+
+  const asd = () => {
+
+    navigate('/perfil');
+  };
 
   const submit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
-      const response = await login({email, password})
-      console.log(response.data)
-      alert("Deu certo!")
+      const response = await login({ email, password });
+      console.log(response.data);
+      dispatch(setUser({
+        token: response.data,
+        email,
+      })
+      );
+      alert("Logado!");
+      asd()
     } catch (error) {
-      alert("Deu algo errado!")
+      alert("Deu algo errado!");
     }
+  };
 
-  }
+
+  
+
 
   return (
     <main className="container-bg">
@@ -39,11 +56,25 @@ export default function Login() {
                 <h4 className="py-3">LOGIN</h4>
                 <Form onSubmit={submit} className="container w-75">
                   <Form.Group className="mb-3 mt-4">
-                    <Form.Control id="input-form" type="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    <Form.Control
+                      className="input-form-login"
+                      type="email"
+                      placeholder="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
                   </Form.Group>
 
                   <Form.Group className="mb-3 mt-4">
-                    <Form.Control id="input-form" type="password" placeholder="senha" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                    <Form.Control
+                      className="input-form-login"
+                      type="password"
+                      placeholder="senha"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
                   </Form.Group>
 
                   <Form.Group className="mb-3 mt-4">
@@ -56,7 +87,9 @@ export default function Login() {
                   </Form.Group>
                 </Form>
               </Card.Body>
-                <Link id="link" className="mb-5" to="/cadastro">cadastre-se</Link>
+              <Link id="link" className="mb-5" to="/cadastro">
+                cadastre-se
+              </Link>
             </Card>
           </div>
         </div>

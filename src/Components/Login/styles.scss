@@ -13,11 +13,11 @@
         font-size: 1rem;
     }    
 
-    #input-form{
-        border-radius: .625rem;
-        border: #909090 .0625rem solid;
-        padding-top: .29rem;
-        padding-bottom: .29rem;
+    .input-form-login{
+        border-radius: .625rem !important; 
+        border: #909090 .0625rem solid !important;
+        padding-top: .29rem !important;
+        padding-bottom: .29rem !important;
     }
 
     ::placeholder{

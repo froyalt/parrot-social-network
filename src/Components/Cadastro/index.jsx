@@ -1,8 +1,7 @@
 import { useState } from "react";
-import Form from "react-bootstrap/Form";
-import Card from "react-bootstrap/Card";
+import { Card, Form } from "react-bootstrap";
 import Logo from "../../assets/img/logo-colorido.png";
-import { cadastroUsuario } from "../../services/Teste-API/usuarios";
+import { cadastroUsuario } from "../../services/Teste-API/config/cadastro";
 import "../Cadastro/styles.scss";
 
 export default function Cadastro() {
@@ -83,7 +82,7 @@ export default function Cadastro() {
                       className="my-5"
                       id="buttonEntrar"
                       type="submit"
-                      value="entrar"
+                      value="cadastrar-se"
                     />
                   </Form.Group>
                 </Form>

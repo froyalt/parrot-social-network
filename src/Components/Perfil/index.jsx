@@ -1,10 +1,16 @@
-import "../Perfil/styles.scss";
 import Header from "../Header";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+import {Card, Button} from "react-bootstrap"
 import Foto from "../../assets/img/zeca-urubu.png";
+import { useSelector } from "react-redux";
+
+import "../Perfil/styles.scss";
 
 export default function Perfil() {
+
+const user = useSelector((store) => store.userReduce);
+
+console.log(user)
+
   return (
     <div>
       <Header />
@@ -20,7 +26,7 @@ export default function Perfil() {
               <br />
               apê 82
               <br />
-              user@mail.com
+              {user.email}
               <br />
               00 Publicações
             </Card.Text>
