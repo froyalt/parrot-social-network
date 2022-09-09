@@ -1,11 +1,38 @@
 import Header from "../Header";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import Form from "react-bootstrap/Form";
+import {Button, Card, Form} from "react-bootstrap";
 import Foto from "../../assets/img/zeca-urubu.png";
 import "../Feed/styles.scss";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 
 export default function Feed() {
+
+
+  const [usuariosPost, setUsuariosPost] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:3033/post/",
+        );
+        setUsuariosPost(response.data);
+
+        if (response.status !== 200) {
+          return alert("Algo deu errado!");
+        }
+      } catch (error) {
+        alert("Algo deu errado! (catch)");
+      }
+    };
+
+    getData();
+  }, [setUsuariosPost]);
+
+
+
+
   return (
     <div>
       <Header />
@@ -33,6 +60,10 @@ export default function Feed() {
         </Card>
       </div>
 
+
+      {usuariosPost.map((usuario) => (
+        
+      
       <div className="d-flex justify-content-center">
         <Card
           id="card-post"
@@ -41,16 +72,17 @@ export default function Feed() {
           <Card.Body className="d-flex justify-content-around align-items-center card-post">
             <img src={Foto} alt="foto-de-perfil" className="foto-perfil me-3" />
             <Card.Text className="mt-2 ms-2">
-              <span className="nome-publi">Vinicius - apê 82</span>
+              <span className="nome-publi">{usuario?.user.name} - apê {usuario?.user.apartment}</span>
               <br />
-              <span className="data-publi">00/00/2022 00:00</span>
+              <span className="data-publi">{usuario.createdAt}</span>
               <br />
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              {usuario?.content}
             </Card.Text>
           </Card.Body>
         </Card>
       </div>
+
+))}
       <div className="d-flex justify-content-center">
         <Card
           id="card-post"

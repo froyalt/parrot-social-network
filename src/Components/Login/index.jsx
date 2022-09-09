@@ -24,7 +24,7 @@ export default function Login() {
     const decoded = jwtDecode(tokenAPI)
     try {
 
-      window.localStorage.setItem("token", response.data.token);
+      window.localStorage.setItem("token", response.data);
 
       dispatch(setUser({
         token: response.data,

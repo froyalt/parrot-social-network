@@ -1,7 +1,6 @@
 import Header from "../Header";
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from 'react-router-dom'
-import testeAPI from "../../services/Teste-API/config/teste-api";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Foto from "../../assets/img/zeca-urubu.png";
