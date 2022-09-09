@@ -1,27 +1,29 @@
 import { useCallback, useEffect, useState } from "react";
-import { listarUsuario } from "../../services/Teste-API/usuarios";
 import { useParams } from "react-router-dom";
 import baseAPI from "../../services/Teste-API/config/index";
 import { Navbar, Container } from "react-bootstrap";
 import Logo from "../../assets/img/logo-horizontal-colorido.png";
 import "../Header/styles.scss";
-
+import { useSelector } from "react-redux";
 export default function Header() {
-  const [usuarios, setUsuarios] = useState();
+  // const [usuarios, setUsuarios] = useState();
 
-  const { id } = useParams();
+  // const { id } = useParams();
 
-  const fetchUser = useCallback(async () => {
-    const response = await baseAPI.get(`/GI7aAo/tweet/${id}`).then((res) => {
-      return res.data;
-    });
+  // const fetchUser = useCallback(async () => {
+  //   const response = await baseAPI.get(`/GI7aAo/tweet/${id}`).then((res) => {
+  //     return res.data;
+  //   });
 
-    setUsuarios(response);
-  }, [setUsuarios, id]);
+  //   setUsuarios(response);
+  // }, [setUsuarios, id]);
 
-  useEffect(() => {
-    fetchUser();
-  }, [fetchUser]);
+  // useEffect(() => {
+  //   fetchUser();
+  // }, [fetchUser]);
+
+  const userLogged = useSelector((store) => store.userReduce)
+console.log(userLogged)
 
   return (
     <Navbar className="header">
@@ -32,7 +34,7 @@ export default function Header() {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            <span className="user-text">Olá, {usuarios?.nome} | </span>{" "}
+            <span className="user-text">Olá, {userLogged.token.user.name} | </span>{" "}
             <a id="sair" href="#login">
               sair
             </a>

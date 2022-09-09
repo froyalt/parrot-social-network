@@ -2,14 +2,31 @@ import Header from "../Header";
 import {Card, Button} from "react-bootstrap"
 import Foto from "../../assets/img/zeca-urubu.png";
 import { useSelector } from "react-redux";
+import { listarUser } from "../../services/Teste-API/config/user";
 
 import "../Perfil/styles.scss";
+import { useEffect, useState } from "react";
 
 export default function Perfil() {
 
-const user = useSelector((store) => store.userReduce);
+const userLogged = useSelector((store) => store.userReduce)
+console.log(userLogged)
 
-console.log(user)
+// const [user, setUser] = useState([])
+// useEffect(() => {
+//   const getData = async () => {
+
+//     try {
+//    const response = await listarUser();
+
+//    setUser(response.data)
+//     } catch (error) {
+//       alert("Deu algo errado!")
+//     }
+
+//   };
+//   getData();
+// }, [setUser]);
 
   return (
     <div>
@@ -22,11 +39,11 @@ console.log(user)
           <Card.Body className="d-flex justify-content-around align-items-center flex-wrap">
             <img src={Foto} alt="foto-de-perfil" className="foto-perfil me-3" />
             <Card.Text className="mt-2 ms-2">
-              <span id="nome-perfil">Nome Sobrenome</span>
+              <span id="nome-perfil">{userLogged.token.user.name}</span>
               <br />
-              apê 82
+              apê {userLogged.token.user.apartment}
               <br />
-              {user.email}
+              {userLogged.email}
               <br />
               00 Publicações
             </Card.Text>

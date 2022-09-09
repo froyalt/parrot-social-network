@@ -14,7 +14,7 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  const asd = () => {
+  const redirect = () => {
 
     navigate('/perfil');
   };
@@ -24,14 +24,14 @@ export default function Login() {
 
     try {
       const response = await login({ email, password });
-      console.log(response.data);
       dispatch(setUser({
         token: response.data,
         email,
       })
       );
       alert("Logado!");
-      asd()
+      console.log(response.data)
+      redirect()
     } catch (error) {
       alert("Deu algo errado!");
     }
