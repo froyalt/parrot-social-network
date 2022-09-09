@@ -12,22 +12,22 @@ import FotoPost from "../../assets/img/icone-cinza.svg";
 import "../Perfil-copy/styles.scss";
 
 export default function Perfilcopy() {
-  const [usuarios, setUsuarios] = useState()
+//   const [usuarios, setUsuarios] = useState()
 
-  const { id } = useParams()
+//   const { id } = useParams()
 
 
-  const fetchUser = useCallback(async () => {
-    const response = await testeAPI.get(`/GI7aAo/tweet/${id}`).then ((res) => {
-      return res.data
-    })
+//   const fetchUser = useCallback(async () => {
+//     const response = await testeAPI.get(`/GI7aAo/tweet/${id}`).then ((res) => {
+//       return res.data
+//     })
 
-    setUsuarios(response)
-  }, [setUsuarios, id]);
+//     setUsuarios(response)
+//   }, [setUsuarios, id]);
 
-    useEffect(() => {
-      fetchUser()
-    }, [fetchUser])
+//     useEffect(() => {
+//       fetchUser()
+//     }, [fetchUser])
 
   return (
     <>
@@ -40,11 +40,11 @@ export default function Perfilcopy() {
           <Card.Body className="d-flex justify-content-around align-items-center flex-wrap">
             <img src={Foto} alt="foto-de-perfil" className="foto-perfil me-3" />
             <Card.Text className="mt-2 ms-2">
-              <span id="nome-perfil">{usuarios?.nome}</span>
+              <span id="nome-perfil">{}</span>
               <br />
-              apê {usuarios?.apartamento}
+              apê {}
               <br />
-              {usuarios?.email}
+              {}
               <br />
                Quantas publicações? inbox
             </Card.Text>
