@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import "../Login/styles.scss";
 import { setUser } from "../../store/modules/user";
+import jwtDecode from "jwt-decode";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -14,31 +15,29 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  const redirect = () => {
-
-    navigate('/perfil');
-  };
-
   const submit = async (e) => {
     e.preventDefault();
 
+    
+    const response = await login({ email, password });
+    const tokenAPI = response.data
+    const decoded = jwtDecode(tokenAPI)
     try {
-      const response = await login({ email, password });
+
+      window.localStorage.setItem("token", response.data.token);
+
       dispatch(setUser({
         token: response.data,
         email,
       })
       );
-      alert("Logado!");
-      console.log(response.data)
-      redirect()
+      console.log(decoded)
+      alert("ok")
+      navigate(`/perfil/${decoded.id}`)
     } catch (error) {
       alert("Deu algo errado!");
     }
   };
-
-
-  
 
 
   return (

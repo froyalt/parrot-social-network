@@ -3,6 +3,7 @@ import { Card, Form } from "react-bootstrap";
 import Logo from "../../assets/img/logo-colorido.png";
 import { cadastroUsuario } from "../../services/Teste-API/config/cadastro";
 import "../Cadastro/styles.scss";
+import {Link, Routes, Route, useNavigate} from 'react-router-dom';
 
 export default function Cadastro() {
 
@@ -11,6 +12,14 @@ export default function Cadastro() {
   const [password, setSenha] = useState("");
   const [confirmarSenha, setConfirmarSenha] = useState("");
   const [apartment, setApartamento] = useState("");
+
+  const navigate = useNavigate();
+
+  const redirect = () => {
+
+    navigate('/');
+  };
+
 
   const cadastro = async (e) => {
     e.preventDefault();
@@ -30,6 +39,7 @@ export default function Cadastro() {
       }
 
       alert("Cadastro Efetuado com Sucesso!")
+      redirect()
     } catch (error) {
       return alert("Algo deu errado")
       

@@ -1,32 +1,41 @@
 import Header from "../Header";
-import {Card, Button} from "react-bootstrap"
+import { Card, Button } from "react-bootstrap";
 import Foto from "../../assets/img/zeca-urubu.png";
-import { useSelector } from "react-redux";
-import { listarUser } from "../../services/Teste-API/config/user";
-
+import baseAPI from "../../services/Teste-API/config";
 import "../Perfil/styles.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import { useParams } from "react-router-dom";
 
 export default function Perfil() {
+  const [usuarios, setUsuarios] = useState();
 
-const userLogged = useSelector((store) => store.userReduce)
-console.log(userLogged)
+  const { id } = useParams();
 
-// const [user, setUser] = useState([])
-// useEffect(() => {
-//   const getData = async () => {
+  const fetchUser = useCallback(async () => {
+    const response = await baseAPI.get(`/user/${id}`).then((res) => {
+      return res.data;
+    });
 
-//     try {
-//    const response = await listarUser();
+    setUsuarios(response);
+  }, [setUsuarios, id]);
 
-//    setUser(response.data)
-//     } catch (error) {
-//       alert("Deu algo errado!")
-//     }
+  useEffect(() => {
+    fetchUser();
+  }, [fetchUser]);
 
-//   };
-//   getData();
-// }, [setUser]);
+
+  const [usuariosPost, setUsuariosPost] = useState([]);
+
+  useEffect (() => {
+    const getData = async () => {
+      try {
+        const response = await listar
+      } catch (error) {
+        
+      }
+    }
+  })
+
 
   return (
     <div>
@@ -39,11 +48,11 @@ console.log(userLogged)
           <Card.Body className="d-flex justify-content-around align-items-center flex-wrap">
             <img src={Foto} alt="foto-de-perfil" className="foto-perfil me-3" />
             <Card.Text className="mt-2 ms-2">
-              <span id="nome-perfil">{userLogged.token.user.name}</span>
+              <span id="nome-perfil">{usuarios?.name}</span>
               <br />
-              apê {userLogged.token.user.apartment}
+              apê {usuarios?.apartment}
               <br />
-              {userLogged.email}
+              {usuarios?.email}
               <br />
               00 Publicações
             </Card.Text>
